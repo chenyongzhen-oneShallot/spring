@@ -38,4 +38,13 @@
 
     <!--    通过FactoryBean 创建UserModel对象-->
     <bean id="createByFactoryBean" class="com.alibaba.spring.UserFactoryBean"></bean>
+
+    <!--    单例bean，scope设置为singleton-->
+    <bean id="singletonBean" class="com.alibaba.spring.scope.BeanScopeModel" scope="singleton">
+        <constructor-arg index="0" value="singleton"></constructor-arg>
+    </bean>
+
+    <bean id="prototypeBean" class="com.alibaba.spring.scope.BeanScopeModel" scope="prototype">
+        <constructor-arg index="0" value="prototype"></constructor-arg>
+    </bean>
 </beans>
