@@ -1,5 +1,7 @@
 package com.alibaba.spring.Dependency;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.management.ConstructorParameters;
@@ -11,7 +13,8 @@ import javax.management.ConstructorParameters;
  * 根据构造器参数类型注入
  * 根据构造器参数名称注入
  */
-
+@Setter
+@Getter
 @ToString
 public class UserModel {
     private String name;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.alibaba.spring.Dependency.UserModel"/>
+    <!--ref属性-构造器方式注入其他bean-->
+    <bean id="diByRefConstructor" class="com.alibaba.spring.Dependency.otherBean.PersonModel">
+        <constructor-arg ref="user"></constructor-arg>
+    </bean>
+
+    <!--ref属性-setter方式注入其他bean-->
+    <bean id="diByRefSetter" class="com.alibaba.spring.Dependency.otherBean.PersonModel">
+        <property name="userModel" ref="user"></property>
+    </bean>
+
+    <!--内置bean方式-构造器方式注入其他bean-->
+    <bean id="diByInConstructor" class="com.alibaba.spring.Dependency.otherBean.PersonModel">
+        <constructor-arg index="0">
+            <bean class="com.alibaba.spring.Dependency.UserModel">
+                <constructor-arg index="0" value="宾利"></constructor-arg>
+                <constructor-arg index="1" value=""></constructor-arg>
+            </bean>
+        </constructor-arg>
+
+    </bean>
+
+    <!--内置bean方式-setter方式注入其他bean-->
+    <bean id="diByInSetter" class="com.alibaba.spring.Dependency.otherBean.PersonModel">
+        <property name="userModel">
+            <bean class="com.alibaba.spring.Dependency.UserModel">
+                <constructor-arg index="0" value="保时捷"></constructor-arg>
+                <constructor-arg index="1" value=""></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
