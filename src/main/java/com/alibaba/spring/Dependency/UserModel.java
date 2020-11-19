@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.management.ConstructorParameters;
 
 /**
  * spring依赖注入通常有2种方式：构造函数的方式和set属性的方式
@@ -30,7 +29,7 @@ public class UserModel {
         this.desc = desc;
     }
 
-    @ConstructorParameters({"name","age","desc"})
+//    @ConstructorParameters({"name","age","desc"})
     public UserModel(String name, int age, String desc) {
         this.name = name;
         this.age = age;
